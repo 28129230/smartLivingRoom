@@ -3,7 +3,7 @@ int plugs[8] = {2,3,4,5,6,7,8,9};//分配控制插座的开关引脚
 
 void setup()
 {
-	for(int i=0;i<8;i++)//初始化数字引脚2-9为高电平，控制8个继电器状态为关闭
+	for(int i=0;i<8;i++)//初始化8个数字引脚，控制8个继电器状态为关闭
 	{
 		pinMode(plugs[i],OUTPUT);//引脚为输出
 		digitalWrite(plugs[i],HIGH);//引脚为高电平
@@ -11,7 +11,7 @@ void setup()
 	Serial.begin(9600);//打开串口通讯
 }
 
-void plugContral(int plugNum,char state)//插口控制函数，带2个参数，插口编号从0-7，状态为LOW或HIGH
+void plugContral(int plugNum,char state)//插口控制函数，带2个参数，插口编号从0-7，状态为‘c’或‘o’
 {
 	if(state == 'c')//如果State是'c'，就是close的缩写，表示端口通电
 	{
